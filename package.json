@@ -1,0 +1,42 @@
+{
+  "name": "chirp",
+  "version": "0.1.0",
+  "description": "Twitter stream renderer.",
+  "main": "server/index.js",
+  "homepage": "https://github.com/tanem/chirp",
+  "bugs": {
+    "url": "http://github.com/tanem/chirp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tanem/chirp.git"
+  },
+  "engines": {
+    "node": ">= 0.11.0"
+  },
+  "dependencies": {
+    "shoe": "~0.0.15",
+    "habitat": "^1.1.0",
+    "transform-parse": "^0.2.1",
+    "transform-split": "^0.2.2",
+    "stweam": "^0.8.1"
+  },
+  "devDependencies": {
+    "browserify": "^4.2.0",
+    "watchify": "^0.10.2"
+  },
+  "scripts": {
+    "start": "node --harmony server",
+    "build": "browserify browser/main.js -o static/bundle.js",
+    "watch": "watchify browser/main.js -o static/bundle.js -dv"
+  },
+  "keywords": [
+    "twitter",
+    "stream"
+  ],
+  "author": {
+    "name": "Tane Morgan",
+    "url": "http://github.com/tanem"
+  },
+  "license": "MIT"
+}

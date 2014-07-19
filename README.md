@@ -39,6 +39,6 @@ $ npm start
 [Watchify](https://github.com/substack/watchify) is also available for development purposes, e.g.:
 
 ```sh
-$ npm run watch
+$ npm run watch &
 npm start
 ```

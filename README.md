@@ -31,14 +31,16 @@ $ npm install
 
 ## Run
 
+See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.
+
 ```sh
 $ npm run build
-$ npm start
+$ node --harmony server --track=[phrases]
 ```
 
 [Watchify](https://github.com/substack/watchify) is also available for development purposes, e.g.:
 
 ```sh
 $ npm run watch &
-npm start
+node --harmony server --track=[phrases]
 ```

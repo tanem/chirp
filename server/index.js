@@ -5,6 +5,11 @@ var shoe = require('shoe');
 var Stweam = require('stweam');
 var habitat = require('habitat');
 
+var argv = require('yargs')
+  .demand('track')
+  .describe('track', 'Set the phrases that will determine what is delivered from Twitter')
+  .argv;
+
 var env = habitat.load(path.join(__dirname, '../.env'));
 
 var server = http.createServer(function(req, res){
@@ -32,8 +37,12 @@ var twitter = new Stweam({
   tokenSecret: env.get('chirpTokenSecret')
 });
 
+twitter.on('info', function(msg){
+  console.log(msg);
+});
+
 twitter
-  .track('baseball')
+  .track(argv.track)
   .start();
 
 var sock = shoe(function(stream){

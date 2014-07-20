@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",
@@ -19,14 +19,14 @@
     "habitat": "^1.1.0",
     "transform-parse": "^0.2.1",
     "transform-split": "^0.2.2",
-    "stweam": "^0.8.1"
+    "stweam": "^0.8.2",
+    "yargs": "^1.2.6"
   },
   "devDependencies": {
     "browserify": "^4.2.0",
     "watchify": "^0.10.2"
   },
   "scripts": {
-    "start": "node --harmony server",
     "build": "browserify browser/main.js -o static/bundle.js",
     "watch": "watchify browser/main.js -o static/bundle.js -dv"
   },

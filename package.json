@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",
@@ -20,11 +20,13 @@
     "transform-parse": "^0.2.1",
     "transform-split": "^0.2.2",
     "stweam": "^0.8.2",
-    "yargs": "^1.2.6"
+    "yargs": "^1.2.6",
+    "react": "^0.11.0"
   },
   "devDependencies": {
     "browserify": "^4.2.0",
-    "watchify": "^0.10.2"
+    "watchify": "^0.10.2",
+    "reactify": "^0.14.0"
   },
   "scripts": {
     "build": "browserify browser/main.js -o static/bundle.js",
@@ -38,5 +40,10 @@
     "name": "Tane Morgan",
     "url": "http://github.com/tanem"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  }
 }

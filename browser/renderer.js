@@ -1,4 +1,7 @@
+/** @jsx React.DOM */
+var React = require('react');
 var stream = require('stream');
+var Tweet = require('./tweet');
 
 module.exports = function(el){
   return new Renderer(el);
@@ -12,6 +15,6 @@ function Renderer(el) {
 Renderer.prototype = Object.create(stream.Writable.prototype);
 
 Renderer.prototype._write = function(chunk, encoding, done){
-  this._el.textContent = chunk.text;
+  React.renderComponent(<Tweet tweetText={chunk.text} />, this._el);
   done();
 };

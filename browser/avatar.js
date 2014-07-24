@@ -4,7 +4,7 @@ var React = require('react');
 module.exports = React.createClass({
   render: function() {
     return (
-      <span>{this.props.text}</span>
+      <img src={this.props.avatar} height="48" width="48" />
     );
   }
 });

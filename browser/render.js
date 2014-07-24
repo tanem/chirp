@@ -19,8 +19,9 @@ Render.prototype._write = function(chunk, encoding, done){
   this._tweets.push({
     id: chunk.id_str,
     text: chunk.text,
-    avatar: chunk.user.profile_image_url,
-    name: chunk.user.name
+    profileImage: chunk.user.profile_image_url,
+    fullName: chunk.user.name,
+    screenName: chunk.user.screen_name
   });
   React.renderComponent(<Tweets tweets={this._tweets} />, document.querySelector('body'));
   done();

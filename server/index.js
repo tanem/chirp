@@ -21,6 +21,10 @@ var server = http.createServer(function(req, res){
     res.setHeader('Content-Type', 'application/javascript');
     res.setHeader('Charset', 'utf-8');
     fs.createReadStream('static/bundle.js').pipe(res);
+  } else if ('/main.css' === req.url) {
+    res.setHeader('Content-Type', 'text/css');
+    res.setHeader('Charset', 'utf-8');
+    fs.createReadStream('static/main.css').pipe(res); 
   } else {
     res.statusCode = 404;
     res.end('File not found');

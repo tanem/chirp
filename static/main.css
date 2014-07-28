@@ -3,7 +3,7 @@ body {
   overflow: hidden;
 }
 
-.container,
+.wall,
 .avatar {
   float: left;
 }

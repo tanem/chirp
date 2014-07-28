@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
 var stream = require('stream');
-var Tweets = require('./tweets');
+var Wall = require('./wall');
 
 module.exports = function(){
   return new Render();
@@ -23,6 +23,6 @@ Render.prototype._write = function(chunk, encoding, done){
     fullName: chunk.user.name,
     screenName: chunk.user.screen_name
   });
-  React.renderComponent(<Tweets tweets={this._tweets} />, document.querySelector('body'));
+  React.renderComponent(<Wall tweets={this._tweets} />, document.querySelector('body'));
   done();
 };

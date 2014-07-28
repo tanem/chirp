@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Avatar = require('avatar');
+var Avatar = require('./avatar');
 
 module.exports = React.createClass({
 

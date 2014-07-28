@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
+var Avatar = require('avatar');
 
 module.exports = React.createClass({
 
@@ -19,7 +20,7 @@ module.exports = React.createClass({
       <div className="wall" style={this.state.wallStyles}>
         {this.props.tweets.map(function(tweet){
           return (
-            <img key={tweet.id} src={tweet.profileImage} height="48" width="48" />
+            <Avatar key={tweet.id} profileImage={tweet.profileImage} />
           );
         })}
       </div>

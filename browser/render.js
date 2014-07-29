@@ -23,6 +23,6 @@ Render.prototype._write = function(chunk, encoding, done){
     fullName: chunk.user.name,
     screenName: chunk.user.screen_name
   });
-  React.renderComponent(<Wall tweets={this._tweets} />, document.querySelector('body'));
+  React.renderComponent(<Wall tweets={this._tweets} />, document.querySelector('.wall'));
   done();
 };

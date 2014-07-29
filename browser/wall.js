@@ -4,6 +4,10 @@ var Avatar = require('./avatar');
 
 module.exports = React.createClass({
 
+  propTypes: {
+    tweets: React.PropTypes.array
+  },
+
   getInitialState: function(){
     var numColumns = Math.ceil(window.innerWidth / 48);
     var numRows = Math.ceil(window.innerHeight / 48);
@@ -17,13 +21,20 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="wall" style={this.state.wallStyles}>
+      <div style={this.state.wallStyles}>
         {this.props.tweets.map(function(tweet){
           return (
-            <Avatar key={tweet.id} profileImage={tweet.profileImage} />
+            <Avatar
+              key={tweet.id}
+              profileImage={tweet.profileImage}
+              fullName={tweet.fullName}
+              screenName={tweet.screenName}
+              text={tweet.text}
+            />
           );
         })}
       </div>
     );
   }
+
 });

@@ -3,26 +3,28 @@ var React = require('react');
 var stream = require('stream');
 var Wall = require('./wall');
 
-module.exports = function(){
-  return new Render();
+module.exports = function(wallStyles){
+  return new Render(wallStyles);
 };
 
-function Render(el) {
+function Render(wallStyles) {
   stream.Writable.call(this, { objectMode: true });
   this._tweets = [];
-  this._el = el;
+  this._wallStyles = wallStyles;
 }
 
 Render.prototype = Object.create(stream.Writable.prototype);
 
-Render.prototype._write = function(chunk, encoding, done){
-  this._tweets.push({
-    id: chunk.id_str,
-    text: chunk.text,
-    profileImage: chunk.user.profile_image_url,
-    fullName: chunk.user.name,
-    screenName: chunk.user.screen_name
+Render.prototype._write = function(clump, encoding, done){
+  this._tweets = clump.map(function(tweet){
+    return {
+      id: tweet.id_str,
+      text: tweet.text,
+      profileImage: tweet.user.profile_image_url,
+      fullName: tweet.user.name,
+      screenName: tweet.user.screen_name
+    };
   });
-  React.renderComponent(<Wall tweets={this._tweets} />, document.querySelector('.wall'));
+  React.renderComponent(<Wall wallStyles={this._wallStyles} tweets={this._tweets} />, document.querySelector('.wall'));
   done();
 };

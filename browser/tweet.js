@@ -8,8 +8,8 @@ module.exports = React.createClass({
     screenName: React.PropTypes.string,
     text: React.PropTypes.string
   },
-
-  render: function() {
+  
+  render: function(){
     return (
       <div>
         <span className="tweet-full-name">{this.props.fullName}</span>

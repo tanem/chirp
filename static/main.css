@@ -3,7 +3,20 @@ body {
   overflow: hidden;
 }
 
-.wall,
+.wall {
+  float: left;
+}
+
+ .tweet {
+  display: none;
+}
+
 .avatar {
   float: left;
+  transition: all 0.1s;
+}
+
+.avatar:hover {
+  -webkit-transform: scale(1.1);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }

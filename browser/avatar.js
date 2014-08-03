@@ -10,7 +10,12 @@ module.exports = React.createClass({
 
   handleMouseOver: function(){
     React.renderComponent(
-      <Tweet fullName={this.props.fullName} screenName={this.props.screenName} text={this.props.text} />,
+      <Tweet
+        fullName={this.props.fullName}
+        screenName={this.props.screenName}
+        text={this.props.text}
+        profileImage={this.props.profileImage}
+      />,
       document.querySelector('.tweet')
     );
   },

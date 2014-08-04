@@ -11,7 +11,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div style={this.props.wallStyles}>
+      <div className="wall" style={this.props.wallStyles}>
         {this.props.tweets.map(function(tweet){
           return (
             <Avatar

@@ -25,6 +25,9 @@ Render.prototype._write = function(clump, encoding, done){
       screenName: tweet.user.screen_name
     };
   });
-  React.renderComponent(<Wall wallStyles={this._wallStyles} tweets={this._tweets} />, document.querySelector('.wall'));
+  React.renderComponent(
+    <Wall wallStyles={this._wallStyles} tweets={this._tweets} />,
+    document.querySelector('.wall-wrapper')
+  );
   done();
 };

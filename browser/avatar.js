@@ -9,14 +9,20 @@ module.exports = React.createClass({
   },
 
   handleMouseOver: function(){
+    var clientRect = this.getDOMNode().getBoundingClientRect();
+    var tweetStyles = {
+      top: clientRect.top + 10,
+      left: clientRect.right + 10
+    };
     React.renderComponent(
       <Tweet
+        tweetStyles={tweetStyles} 
         fullName={this.props.fullName}
         screenName={this.props.screenName}
         text={this.props.text}
         profileImage={this.props.profileImage}
       />,
-      document.querySelector('.tweet')
+      document.querySelector('.tweet-wrapper')
     );
   },
 

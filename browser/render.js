@@ -27,7 +27,7 @@ Render.prototype._write = function(clump, encoding, done){
   });
   React.renderComponent(
     <Wall wallStyles={this._wallStyles} tweets={this._tweets} />,
-    document.querySelector('.wall-wrapper')
+    document.body
   );
   done();
 };

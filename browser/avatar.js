@@ -8,7 +8,6 @@ module.exports = React.createClass({
     mouseOverHandler: React.PropTypes.func
   },
 
-  // Propagate the mouse over event up to the parent component.
   mouseOverHandler: function(){
     this.props.mouseOverHandler(this);
   },

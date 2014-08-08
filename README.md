@@ -1,6 +1,6 @@
 # chirp
 
-**-- Work in progress! --**
+**-- NOTE: Work in progress! --**
 
 Stream tweet data from Twitter's public stream all the way through to the browser.
 

@@ -1,0 +1,11 @@
+{
+  "node": true,
+  "unused": true,
+  "undef": true,
+  "trailing": true,
+  "expr": true,
+  "globals": {
+    "window": false,
+    "document": false
+  }
+}

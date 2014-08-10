@@ -29,6 +29,7 @@ body {
   width: 500px;
   box-shadow: 0 0 12px 0 rgba(136, 153, 166, 0.5);
   pointer-events: none;
+  visibility: hidden;
 }
 
 .tweet-full-name {

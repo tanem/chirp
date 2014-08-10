@@ -12,20 +12,32 @@ module.exports = React.createClass({
 
   getInitialState: function(){
     return {
-      tweetIsVisible: false,
       tweetFullName: '',
       tweetScreenName: '',
       tweetText: '',
-      tweetProfileImage: '',
-      avatarRect: {} 
+      tweetProfileImage: ''
     };
+  },
+
+  tweetDidUpdateHandler: function(tweet){
+
+    // At this point the tweet has been rendered to the DOM
+    // but is still invisible. In this state we can grab it's
+    // dimensions so it can be positioned correctly.
+    if (this.state.tweetWillShow) {
+      this.setState({
+        tweetWillShow: false,
+        tweetIsVisible: true,
+        tweetRect: tweet.getDOMNode().getBoundingClientRect()
+      });
+    }
   },
 
   avatarMouseOverHandler: function(avatar){
 
     if (this.activeAvatarKey !== avatar.props.key) {
       
-      // Hide the tweet immediately.
+      // Hide immediately.
       this.setState({
         tweetIsVisible: false
       });
@@ -36,26 +48,14 @@ module.exports = React.createClass({
       // Kick off a display tweet timeout.
       // Moving within the current avatar won't affect the timer.
       this.timeoutId = setTimeout(function(){
-        
-        // Render but keep invisible.
         this.setState({
+          tweetWillShow: true,
           tweetFullName: avatar.props.fullName,
           tweetScreenName: avatar.props.screenName,
           tweetText: avatar.props.text,
-          tweetProfileImage: avatar.props.profileImage
+          tweetProfileImage: avatar.props.profileImage,
+          avatarRect: avatar.getDOMNode().getBoundingClientRect()
         });
-
-        // Get dims.
-        var tweetRect = this.refs.tweet.getDOMNode().getBoundingClientRect();
-        var avatarRect = avatar.getDOMNode().getBoundingClientRect();
-
-        // Show tweet.
-        this.setState({
-          tweetIsVisible: true,
-          tweetRect: tweetRect,
-          avatarRect: avatarRect
-        });
-
       }.bind(this), 1000);
     }
 
@@ -69,21 +69,25 @@ module.exports = React.createClass({
     var result = {};
     var buffer = 10;
 
+    // First up, try positioning the tweet below the avatar.
+    // If there is no room, position above.
     if (avatarRect.bottom + buffer + tweetRect.height <= window.innerHeight - buffer) {
       result.top = avatarRect.bottom + buffer;
     } else {
       result.top = avatarRect.top - buffer - tweetRect.height;
     }
 
+    // If there is left overflow, reposition to the buffer size.
+    // Otherwise horizontally center it wrt the avatar.
     if (avatarRect.left + avatarRect.width / 2 - tweetRect.width / 2 < buffer) {
       result.left = buffer;
     } else {
       result.left = avatarRect.left + avatarRect.width / 2 - tweetRect.width / 2;
     }
 
-    // TODO: Fix right hand position.
-    if (tweetRect.right > (window.innerWidth - buffer)) {
-      result.left -= tweetRect.right - (window.innerWidth - buffer);
+    // If there is right overflow, reposition to the right buffer.
+    if (result.left + tweetRect.width > window.innerWidth - buffer) {
+      result.left -= result.left + tweetRect.width - (window.innerWidth - buffer);
     }
 
     return result;
@@ -92,18 +96,19 @@ module.exports = React.createClass({
 
   render: function(){
     
-    var tweetPosition = {};
+    var tweetStyles = {};
 
-    if (this.state.avatarRect && this.state.tweetRect) {
-      tweetPosition = this.getTweetPosition(this.state.avatarRect, this.state.tweetRect);
+    // If the tweet should be shown, then update the position.
+    if (this.state.tweetIsVisible) {
+      var tweetPosition = this.getTweetPosition(this.state.avatarRect, this.state.tweetRect);
+      tweetStyles = {
+        top: tweetPosition.top || 0,
+        left: tweetPosition.left || 0
+      };
     }
 
-    // TODO: Animations.
-    var tweetStyles = {
-      visibility: this.state.tweetIsVisible ? 'visible' : 'hidden',
-      top: tweetPosition.top || 0,
-      left: tweetPosition.left || 0
-    };
+    // TODO: Animations?
+    tweetStyles.visibility = this.state.tweetIsVisible ? 'visible' : 'hidden';
 
     return (
       <div className="wall" style={this.props.wallStyles}>
@@ -126,6 +131,7 @@ module.exports = React.createClass({
           screenName={this.state.tweetScreenName}
           text={this.state.tweetText}
           profileImage={this.state.tweetProfileImage}
+          didUpdateHandler={this.tweetDidUpdateHandler}
         />
       </div>
     );

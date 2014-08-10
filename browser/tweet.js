@@ -11,6 +11,10 @@ module.exports = React.createClass({
     tweetStyles: React.PropTypes.object
   },
   
+  componentDidUpdate: function(){
+    this.props.didUpdateHandler(this);
+  },
+
   render: function(){
     return (
       <section className="tweet" style={this.props.tweetStyles}>

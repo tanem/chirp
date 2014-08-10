@@ -1,9 +1,9 @@
 body {
-  font-family: 'Lato', sans-serif;
-  color: #333;
-  line-height: 1.3;
   margin: 0;
   overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.3;
+  color: #333;
 }
 
 .wall {
@@ -21,29 +21,29 @@ body {
 }
 
 .tweet {
-  background-color: #fff;
-  padding: 1rem;
   position: absolute;
-  border-radius: 3px;
-  border: 1px solid #8899a6;
   width: 500px;
-  box-shadow: 0 0 12px 0 rgba(136, 153, 166, 0.5);
+  padding: 1rem;
   pointer-events: none;
+  background-color: #fff;
+  border: 1px solid #8899a6;
+  border-radius: 3px;
   visibility: hidden;
+  box-shadow: 0 0 12px 0 rgba(136, 153, 166, 0.5);
 }
 
 .tweet-full-name {
-  background: url('twitter_logo.png') no-repeat 100% 50%;
-  font-weight: bold;
-  font-size: 1rem;
-  padding-right: 26px;
   display: inline-block;
+  padding-right: 26px;
   margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  background: url('twitter_logo.png') no-repeat 100% 50%;
 }
 
 .tweet-screen-name {
-  font-size: 0.9em;
   margin: 0;
+  font-size: 0.9em;
   font-weight: normal;
 }
 

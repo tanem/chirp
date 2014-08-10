@@ -5,11 +5,11 @@ module.exports = React.createClass({
   
   propTypes: {
     profileImage: React.PropTypes.string,
-    mouseOverHandler: React.PropTypes.func
+    mouseOverAction: React.PropTypes.func
   },
 
-  mouseOverHandler: function(){
-    this.props.mouseOverHandler(this);
+  mouseOverAction: function(){
+    this.props.mouseOverAction(this);
   },
 
   render: function() {
@@ -19,7 +19,7 @@ module.exports = React.createClass({
         src={this.props.profileImage}
         height="48"
         width="48"
-        onMouseOver={this.mouseOverHandler}
+        onMouseOver={this.mouseOverAction}
       />
     );
   }

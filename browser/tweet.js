@@ -8,11 +8,12 @@ module.exports = React.createClass({
     fullName: React.PropTypes.string,
     screenName: React.PropTypes.string,
     text: React.PropTypes.string,
-    tweetStyles: React.PropTypes.object
+    tweetStyles: React.PropTypes.object,
+    didUpdate: React.PropTypes.func
   },
   
   componentDidUpdate: function(){
-    this.props.didUpdateHandler(this);
+    this.props.didUpdate(this);
   },
 
   render: function(){

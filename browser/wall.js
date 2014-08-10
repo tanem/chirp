@@ -19,7 +19,7 @@ module.exports = React.createClass({
     };
   },
 
-  tweetDidUpdateHandler: function(tweet){
+  tweetDidUpdate: function(tweet){
 
     // At this point the tweet has been rendered to the DOM
     // but is still invisible. In this state we can grab it's
@@ -33,7 +33,7 @@ module.exports = React.createClass({
     }
   },
 
-  avatarMouseOverHandler: function(avatar){
+  avatarMouseOverAction: function(avatar){
 
     if (this.activeAvatarKey !== avatar.props.key) {
       
@@ -120,7 +120,7 @@ module.exports = React.createClass({
               fullName={tweet.fullName}
               screenName={tweet.screenName}
               text={tweet.text}
-              mouseOverHandler={this.avatarMouseOverHandler}
+              mouseOverAction={this.avatarMouseOverAction}
             />
           );
         }, this)}
@@ -131,7 +131,7 @@ module.exports = React.createClass({
           screenName={this.state.tweetScreenName}
           text={this.state.tweetText}
           profileImage={this.state.tweetProfileImage}
-          didUpdateHandler={this.tweetDidUpdateHandler}
+          didUpdate={this.tweetDidUpdate}
         />
       </div>
     );

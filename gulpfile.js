@@ -34,6 +34,7 @@ gulp.task('watchify', function(){
       .pipe(source('bundle.js'))
       .pipe(gulp.dest('static'));
   };
+  bundler.transform('reactify');
   bundler.on('update', rebundle);
   bundler.on('log', function(msg){
     gutil.log(gutil.colors.cyan('\'watchify\''), msg);

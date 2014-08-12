@@ -31,16 +31,11 @@ $ npm install
 
 ## Run
 
-See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.
+Start [gulp](http://gulpjs.com/), then start the server:
 
 ```sh
-$ npm run build
+$ gulp
 $ node --harmony server --track=[phrases]
 ```
 
-[Watchify](https://github.com/substack/watchify) is also available for development purposes, e.g.:
-
-```sh
-$ npm run watch &
-node --harmony server --track=[phrases]
-```
+See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.

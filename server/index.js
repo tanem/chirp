@@ -4,6 +4,7 @@ var fs = require('fs');
 var shoe = require('shoe');
 var Stweam = require('stweam');
 var habitat = require('habitat');
+var ecstatic = require('ecstatic');
 
 var argv = require('yargs')
   .demand('track')
@@ -12,29 +13,10 @@ var argv = require('yargs')
 
 var env = habitat.load(path.join(__dirname, '../.env'));
 
-// TODO: use ecstatic?
-var server = http.createServer(function(req, res){
-  if ('/' === req.url) {
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Charset', 'utf-8');
-    fs.createReadStream('static/index.html').pipe(res);
-  } else if ('/bundle.js' === req.url) {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.setHeader('Charset', 'utf-8');
-    fs.createReadStream('static/bundle.js').pipe(res);
-  } else if ('/main.css' === req.url) {
-    res.setHeader('Content-Type', 'text/css');
-    res.setHeader('Charset', 'utf-8');
-    fs.createReadStream('static/main.css').pipe(res);
-  } else if ('/twitter_logo.png' === req.url) {
-    fs.createReadStream('static/twitter_logo.png').pipe(res); 
-  } else {
-    res.statusCode = 404;
-    res.end('File not found');
-  }
-});
+var server = http.createServer(
+  ecstatic({ root: path.join(__dirname, '../static') })    
+).listen(3000);
 
-server.listen(3000);
 console.log('chirp listening on port 3000');
 
 var twitter = new Stweam({

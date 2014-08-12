@@ -38,22 +38,16 @@
     "vinyl-source-stream": "^0.1.1",
     "browserify": "^5.9.1"
   },
-  "scripts": {
-    "build": "browserify browser/main.js -o static/bundle.js",
-    "watch": "watchify browser/main.js -o static/bundle.js -dv"
-  },
   "keywords": [
     "twitter",
+    "tweets",
+    "tweet",
+    "broadcast",
     "stream"
   ],
   "author": {
     "name": "Tane Morgan",
     "url": "http://github.com/tanem"
   },
-  "license": "MIT",
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
-  }
+  "license": "MIT"
 }

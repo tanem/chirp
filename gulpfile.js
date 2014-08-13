@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var karma = require('karma').server;
 var watch = require('gulp-watch');
 var recess = require('gulp-recess');
 var jshint = require('gulp-jshint');
@@ -40,6 +41,32 @@ gulp.task('watchify', function(){
     gutil.log(gutil.colors.cyan('\'watchify\''), msg);
   });
   return rebundle();
+});
+
+//one could also externalize common config into a separate file,
+//ex.: var karmaCommonConf = require('./karma-common-conf.js');
+var karmaCommonConf = {
+  browsers: ['Chrome'],
+  frameworks: ['jasmine'],
+  files: [
+    'static/bundle.js',
+    'browser/test/*.test.js'
+  ]
+};
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+  karmaCommonConf.singleRun = true;
+  karma.start(karmaCommonConf, done);
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+  karma.start(karmaCommonConf, done);
 });
 
 gulp.task('default', ['css', 'jshint', 'watchify']);

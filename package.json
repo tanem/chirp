@@ -37,7 +37,10 @@
     "gulp-if": "^1.2.4",
     "gulp-util": "^3.0.0",
     "vinyl-source-stream": "^0.1.1",
-    "browserify": "^5.9.1"
+    "browserify": "^5.9.1",
+    "karma": "^0.12.21",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.4"
   },
   "keywords": [
     "twitter",

@@ -6,6 +6,7 @@ var Stweam = require('stweam');
 var habitat = require('habitat');
 var ecstatic = require('ecstatic');
 
+// Helpful info on the command line.
 var argv = require('yargs')
   .demand('track')
   .describe('track', 'Set the phrases that will determine what is delivered from Twitter')
@@ -13,6 +14,7 @@ var argv = require('yargs')
   .describe('port', 'Set the port the server will bind to')
   .argv;
 
+// Start the server.
 var server = http.createServer(
   ecstatic({ root: path.join(__dirname, '../static') })    
 ).listen(argv.port, function(){
@@ -20,8 +22,10 @@ var server = http.createServer(
   console.log('chirp listening at http://%s:%d/', address.address, address.port);
 });
 
+// Load the environment variables.
 var env = habitat.load(path.join(__dirname, '../.env'));
 
+// Connect to Twitter.
 var twitter = new Stweam({
   consumerKey: env.get('chirpConsumerKey'),
   consumerSecret: env.get('chirpConsumerSecret'),
@@ -29,16 +33,20 @@ var twitter = new Stweam({
   tokenSecret: env.get('chirpTokenSecret')
 });
 
+// Output log messages from the Stweam module.
 twitter.on('info', function(msg){
   console.log(msg);
 });
 
+// Make the connection to Twitter's public stream.
 twitter
   .track(argv.track)
   .start();
 
+// Stream the Twitter response over the connected browser stream.
 var sock = shoe(function(stream){
   twitter.pipe(stream);
 });
 
+//  Setup the browser stream.
 sock.install(server, '/tweets');

@@ -48,5 +48,5 @@ var sock = shoe(function(stream){
   twitter.pipe(stream);
 });
 
-//  Setup the browser stream.
+// Bind the shoe instance to to the server.
 sock.install(server, '/tweets');

@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+
 var React = require('react');
 var Avatar = require('./avatar');
 var Tweet = require('./tweet');

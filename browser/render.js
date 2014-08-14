@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+
 var React = require('react');
 var stream = require('stream');
 var Wall = require('./wall');

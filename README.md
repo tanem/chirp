@@ -2,6 +2,7 @@
 
 Stream tweet data from Twitter's public stream all the way through to the browser.
 
+![](https://raw.github.com/tanem/instruments/master/screenshot.png)
 
 ## Requirements
 

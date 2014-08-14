@@ -57,4 +57,5 @@ TODO!
  * The [browser-specific stream module](https://github.com/substack/stream-browserify) to deal with the server response
  * Rendering is then carried out by [React](https://github.com/facebook/react)
  * The total number of tweet avatars rendered is dependant on the size of the window
- * Once the tweet avatar total is maxed, new tweet data is added to the front of the list, and old data is removed.
+ * Once the tweet avatar total is maxed, new tweet data is added to the front of the list, and old data is removed
+ * Hovering over a tweet avatar for a certain amount of time will render the associated tweet text in a popup.

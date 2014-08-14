@@ -39,7 +39,7 @@ $ node --harmony server --track=[phrases]
 
 See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.
 
-To prettify the log output, pipe the output through the Bunyan tool:
+To prettify the log output, pipe it through the Bunyan tool:
 
 ```sh
 $ node --harmony server --track=[phrases] | bunyan

@@ -46,8 +46,12 @@ TODO!
 
 ### Server
 
-The [Stweam](https://github.com/tanem/stweam) module is used to connect to [Twitter's public stream](https://dev.twitter.com/docs/api/1.1/post/statuses/filter) using the track keywords provided on startup. The key information required for the Twitter connection is loaded by [habitat](https://github.com/brianloveswords/habitat). [Shoe](https://github.com/substack/shoe) is used to stream the response back to connected browsers.
+ * The [Stweam](https://github.com/tanem/stweam) module is used to connect to Twitter's public stream using the track keywords provided on startup
+ * The key information required for the Twitter connection is loaded by [habitat](https://github.com/brianloveswords/habitat)
+ * [Shoe](https://github.com/substack/shoe) is used to stream the response back to connected browsers.
 
 ### Browser
 
-[Browserify](https://github.com/substack/node-browserify) is used to package up the various browser modules. This means we can use the [browser-specific stream module](https://github.com/substack/stream-browserify) to deal with the server response. Rendering is then carried out by [React](https://github.com/facebook/react).
+ * [Browserify](https://github.com/substack/node-browserify) is used to package up the various browser modules
+ * The [browser-specific stream module](https://github.com/substack/stream-browserify) to deal with the server response
+ * Rendering is then carried out by [React](https://github.com/facebook/react).

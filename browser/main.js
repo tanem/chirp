@@ -8,10 +8,9 @@ var render = require('./render');
 var numColumns = Math.ceil(window.innerWidth / 48);
 var numRows = Math.ceil(window.innerHeight / 48);
 var wallStyles = {
-    height: numRows * 48,
-    width: numColumns * 48
-  };
-}
+  height: numRows * 48,
+  width: numColumns * 48
+};
 
 // Bind to the server response stream and render it.
 shoe('/tweets')

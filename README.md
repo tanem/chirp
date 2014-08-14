@@ -25,7 +25,7 @@ export CHIRP_TOKEN_SECRET=[token secret]
 Then:
 
 ```sh
-$ npm install
+$ npm install -g gulp; npm install
 ```
 
 
@@ -42,5 +42,6 @@ See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track)
 
 
 ## Server
+
 
 ## Browser

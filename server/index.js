@@ -13,14 +13,14 @@ var argv = require('yargs')
   .describe('port', 'Set the port the server will bind to')
   .argv;
 
-var env = habitat.load(path.join(__dirname, '../.env'));
-
 var server = http.createServer(
   ecstatic({ root: path.join(__dirname, '../static') })    
 ).listen(argv.port, function(){
   var address = server.address();
   console.log('chirp listening at http://%s:%d/', address.address, address.port);
 });
+
+var env = habitat.load(path.join(__dirname, '../.env'));
 
 var twitter = new Stweam({
   consumerKey: env.get('chirpConsumerKey'),

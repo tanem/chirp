@@ -6,7 +6,7 @@ Stream tweet data from Twitter's public stream all the way through to the browse
 ## Requirements
 
  * Node.js version 0.11.x (for the `harmony` flag which exposes generators)
- * Keys obtained from dev.twitter.com after [setting up a new app](https://apps.twitter.com/app/new)
+ * Keys obtained from dev.twitter.com after [setting up a new app](https://apps.twitter.com/app/new).
 
 
 ## Installation

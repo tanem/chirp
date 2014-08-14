@@ -24,7 +24,7 @@ export CHIRP_TOKEN_SECRET=[token secret]
 Then:
 
 ```sh
-$ npm install -g gulp; npm install
+$ npm install -g gulp bunyan; npm install
 ```
 
 
@@ -38,6 +38,14 @@ $ node --harmony server --track=[phrases]
 ```
 
 See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.
+
+To prettify the log output, pipe the output through the Bunyan tool:
+
+```sh
+$ node --harmony server --track=[phrases] | bunyan
+```
+
+More info on Bunyan CLI usage can be found [here](https://github.com/trentm/node-bunyan#cli-usage).
 
 ## Tests
 

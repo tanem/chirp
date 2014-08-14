@@ -5,6 +5,11 @@ var shoe = require('shoe');
 var Stweam = require('stweam');
 var habitat = require('habitat');
 var ecstatic = require('ecstatic');
+var bunyan = require('bunyan');
+
+// Create the loggers.
+var chirpLogger = bunyan.createLogger({ name: 'chirp' });
+var stweamLogger = bunyan.createLogger({ name: 'stweam' });
 
 // Helpful info on the command line.
 var argv = require('yargs')
@@ -19,7 +24,7 @@ var server = http.createServer(
   ecstatic({ root: path.join(__dirname, '../static') })    
 ).listen(argv.port, function(){
   var address = server.address();
-  console.log('chirp listening at http://%s:%d/', address.address, address.port);
+  chirpLogger.info('listening at http://%s:%d/', address.address, address.port);
 });
 
 // Load the environment variables.
@@ -35,7 +40,7 @@ var twitter = new Stweam({
 
 // Output log messages from the Stweam module.
 twitter.on('info', function(msg){
-  console.log(msg);
+  stweamLogger.info(msg);
 });
 
 // Make the connection to Twitter's public stream.
@@ -45,6 +50,7 @@ twitter
 
 // Stream the Twitter response over the connected browser stream.
 var sock = shoe(function(stream){
+  chirpLogger.info('client connected at %s:%d', stream.remoteAddress, stream.remotePort);
   twitter.pipe(stream);
 });
 

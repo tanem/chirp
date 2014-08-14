@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",
@@ -23,7 +23,8 @@
     "yargs": "^1.2.6",
     "react": "^0.11.0",
     "transform-clump": "^0.1.1",
-    "ecstatic": "^0.5.4"
+    "ecstatic": "^0.5.4",
+    "bunyan": "^1.0.0"
   },
   "devDependencies": {
     "watchify": "^1.0.1",

@@ -43,6 +43,10 @@ twitter.on('info', function(msg){
   stweamLogger.info(msg);
 });
 
+twitter.on('warn', function(msg){
+  stweamLogger.warn(msg);
+});
+
 // Make the connection to Twitter's public stream.
 twitter
   .track(argv.track)

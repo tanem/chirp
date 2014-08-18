@@ -35,7 +35,7 @@ $ gulp
 $ node --harmony server --track=[phrases]
 ```
 
-To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool (more info on Bunyan CLI usage can be found [here](https://github.com/trentm/node-bunyan#cli-usage):
+To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool: 
 
 ```sh
 $ node --harmony server --track=[phrases] | bunyan

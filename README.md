@@ -28,22 +28,18 @@ $ npm install -g gulp bunyan; npm install
 
 ## Run
 
-Start [gulp](http://gulpjs.com/), then start the server:
+Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use):
 
 ```sh
 $ gulp
 $ node --harmony server --track=[phrases]
 ```
 
-See [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use.
-
-To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool:
+To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool (more info on Bunyan CLI usage can be found [here](https://github.com/trentm/node-bunyan#cli-usage):
 
 ```sh
 $ node --harmony server --track=[phrases] | bunyan
 ```
-
-More info on Bunyan CLI usage can be found [here](https://github.com/trentm/node-bunyan#cli-usage).
 
 ## Tests
 

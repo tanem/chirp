@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",

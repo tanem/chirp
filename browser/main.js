@@ -1,3 +1,4 @@
+var Combine = require('stream-combiner');
 var shoe = require('shoe');
 var split = require('transform-split');
 var parse = require('transform-parse');
@@ -13,8 +14,13 @@ var wallStyles = {
 };
 
 // Bind to the server response stream and render it.
-shoe('/tweets')
-  .pipe(split('\r\n'))
-  .pipe(parse())
-  .pipe(clump(numColumns * numRows))
-  .pipe(render(wallStyles));
+var stream = Combine(
+  shoe('/tweets'),
+  split('\r\n'),
+  parse(),
+  clump(numColumns * numRows),
+  render(wallStyles)
+);
+
+// Log any errors from the pipeline.
+stream.on('error', console.error.bind(console));

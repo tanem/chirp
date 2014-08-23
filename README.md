@@ -11,7 +11,7 @@ Stream tweet data from Twitter's public stream all the way through to the browse
 
 ## Installation
 
-Create a `.env` file in the root of the project which contains the key info from Twitter:
+Create a `.env` file in the root of the project which contains the key information from Twitter:
 
 ```
 export CHIRP_CONSUMER_KEY=[consumer key]

@@ -43,7 +43,7 @@ $ node --harmony server --track=[phrases] | bunyan
 
 ## Tests
 
-TODO!
+_watch this space_
 
 ## Implementation
 

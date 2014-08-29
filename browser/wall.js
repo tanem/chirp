@@ -3,6 +3,7 @@
 var React = require('react');
 var Avatar = require('./avatar');
 var Tweet = require('./tweet');
+var random = require('rnd');
 
 module.exports = React.createClass({
 
@@ -20,6 +21,10 @@ module.exports = React.createClass({
     };
   },
 
+  componentDidUpdate: function(){
+    this.startAutoDisplay();
+  },
+
   tweetDidUpdate: function(tweet){
 
     // At this point the tweet has been rendered to the DOM
@@ -34,7 +39,26 @@ module.exports = React.createClass({
     }
   },
 
-  avatarMouseOverAction: function(avatar){
+  // As soon as the app isn't idle, stop the auto-display.
+  mouseMoveHandler: function(){
+    clearTimeout(this.autoDisplayIntervalId);
+    this.autoDisplayIntervalId = null;
+    this.setState({
+      tweetIndexToShow: -1,
+      tweetIsVisible: false
+    });
+  },
+
+  // Show random avatars/Tweets every 10s.
+  startAutoDisplay: function(){
+    if (!this.autoDisplayIntervalId) {
+      this.autoDisplayIntervalId = setInterval(function(){
+        this.setState({ tweetIndexToShow: random(this.props.tweets.length) });
+      }.bind(this), 10000);
+    }
+  },
+
+  avatarMouseOverAction: function(avatar, showTweetImmediately){
 
     if (this.activeAvatarKey !== avatar.props.key) {
       
@@ -44,11 +68,11 @@ module.exports = React.createClass({
       });
 
       // Clear any pending timeouts.
-      clearTimeout(this.timeoutId);
+      clearTimeout(this.displayTweetTimeoutId);
 
       // Kick off a display tweet timeout.
       // Moving within the current avatar won't affect the timer.
-      this.timeoutId = setTimeout(function(){
+      this.displayTweetTimeoutId = setTimeout(function(){
         this.setState({
           tweetWillShow: true,
           tweetFullName: avatar.props.fullName,
@@ -57,7 +81,7 @@ module.exports = React.createClass({
           tweetProfileImage: avatar.props.profileImage,
           avatarRect: avatar.getDOMNode().getBoundingClientRect()
         });
-      }.bind(this), 1000);
+      }.bind(this), showTweetImmediately ? 0 : 1000);
     }
 
     // Ensure the currently active avatar is kept up to date.
@@ -68,7 +92,7 @@ module.exports = React.createClass({
   getTweetPosition: function(avatarRect, tweetRect){
 
     var result = {};
-    var buffer = 10;
+    var buffer = 15;
 
     // First up, try positioning the tweet below the avatar.
     // If there is no room, position above.
@@ -96,7 +120,7 @@ module.exports = React.createClass({
   },
 
   render: function(){
-    
+
     var tweetStyles = {};
 
     // If the tweet should be shown, then update the position.
@@ -112,10 +136,11 @@ module.exports = React.createClass({
     tweetStyles.visibility = this.state.tweetIsVisible ? 'visible' : 'hidden';
 
     return (
-      <div className="wall" style={this.props.wallStyles}>
-        {this.props.tweets.map(function(tweet){
+      <div className="wall" style={this.props.wallStyles} onMouseMove={this.mouseMoveHandler}>
+        {this.props.tweets.map(function(tweet, i){
           return (
             <Avatar
+              isDisplayed={i === this.state.tweetIndexToShow}
               key={tweet.id}
               profileImage={tweet.profileImage}
               fullName={tweet.fullName}

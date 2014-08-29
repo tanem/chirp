@@ -9,14 +9,22 @@ module.exports = React.createClass({
     mouseOverAction: React.PropTypes.func
   },
 
+  componentDidUpdate: function(){
+    if (this.props.isDisplayed) {
+      this.props.mouseOverAction(this, true);
+    }
+  },
+
   mouseOverAction: function(){
     this.props.mouseOverAction(this);
   },
 
   render: function() {
+    var classString = 'avatar';
+    if (this.props.isHovered) classString += ' avatar-hover';
     return (
       <img
-        className="avatar"
+        className={classString}
         src={this.props.profileImage}
         height="48"
         width="48"

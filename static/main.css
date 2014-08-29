@@ -15,8 +15,9 @@ body {
   transition: all 0.1s;
 }
 
-.avatar:hover {
-  -webkit-transform: scale(1.1);
+.avatar:hover,
+.avatar-hover {
+  -webkit-transform: scale(1.3);
   box-shadow: 0 0 6px 0 rgba(136, 153, 166, 0.5);
 }
 

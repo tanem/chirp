@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",
@@ -15,17 +15,17 @@
     "node": ">= 0.11.0"
   },
   "dependencies": {
-    "shoe": "~0.0.15",
-    "habitat": "^1.1.0",
-    "transform-parse": "^0.2.1",
-    "transform-split": "^0.2.2",
-    "stweam": "^0.8.2",
-    "yargs": "^1.2.6",
-    "react": "^0.11.0",
-    "transform-clump": "^0.1.1",
-    "ecstatic": "^0.5.4",
     "bunyan": "^1.0.0",
-    "stream-combiner": "^0.2.1"
+    "ecstatic": "^0.5.4",
+    "habitat": "^1.1.0",
+    "react": "^0.11.0",
+    "shoe": "~0.0.15",
+    "stream-combiner": "^0.2.1",
+    "stweam": "^0.8.2",
+    "transform-clump": "^0.1.1",
+    "transform-parse": "^0.3.0",
+    "transform-split": "^0.2.2",
+    "yargs": "^1.2.6"
   },
   "devDependencies": {
     "watchify": "^1.0.1",

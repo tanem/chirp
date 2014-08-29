@@ -32,13 +32,13 @@ Start [gulp](http://gulpjs.com/), then start the server (see [this article](http
 
 ```sh
 $ gulp
-$ node --harmony server --track=[phrases]
+$ node --harmony server --track=[phrases] --port=[port]
 ```
 
 To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool: 
 
 ```sh
-$ node --harmony server --track=[phrases] | bunyan
+$ node --harmony server --track=[phrases] --port=[port] | bunyan
 ```
 
 ## Tests
@@ -60,4 +60,5 @@ _watch this space_
  * Rendering is then carried out by [React](https://github.com/facebook/react)
  * The total number of tweet avatars rendered is dependant on the size of the window
  * Once the tweet avatar total is maxed, new tweet data is added to the front of the list, and old data is removed
- * Hovering over a tweet avatar for a certain amount of time will render the associated tweet text in a popup.
+ * Hovering over a tweet avatar for a certain amount of time will render the associated tweet text in a popup
+ * If the app is idle, random Tweets will be shown every ten seconds.

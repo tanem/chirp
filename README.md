@@ -28,7 +28,7 @@ $ npm install -g gulp bunyan; npm install
 
 ## Run
 
-Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use):
+Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use). `port` will default to `3000` if it is not specified:
 
 ```sh
 $ gulp

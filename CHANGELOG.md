@@ -1,3 +1,7 @@
+## v0.1.21 / 2014-10-28
+
+ * ([d33b0ae](https://github.com/tanem/chirp/commit/d33b0aed0661f12413ef064dd39a1ee1dc584159)) Tidy up README
+
 ## v0.1.20 / 2014-10-24
 
  * ([b44aeac](https://github.com/tanem/chirp/commit/b44aeacd1ad04c46ac4b4411017c4b737878a356)) Generate changelog with mkclog (fixes [#1](https://github.com/tanem/chirp/issues/1))

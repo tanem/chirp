@@ -22,7 +22,7 @@ export CHIRP_TOKEN_SECRET=[token secret]
 
 Then:
 
-```sh
+```
 $ npm install -g gulp bunyan; npm install
 ```
 
@@ -30,14 +30,14 @@ $ npm install -g gulp bunyan; npm install
 
 Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use). `port` will default to `3000` if it is not specified:
 
-```sh
+```
 $ gulp
 $ node --harmony server --track=[phrases] --port=[port]
 ```
 
 To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool: 
 
-```sh
+```
 $ node --harmony server --track=[phrases] --port=[port] | bunyan
 ```
 

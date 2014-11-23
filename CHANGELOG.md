@@ -1,3 +1,7 @@
+## v0.1.22 / 2014-11-23
+
+ * ([fa802c5](https://github.com/tanem/chirp/commit/fa802c58cc2f523e9cffbabbc09a76d289385e8c)) Update README
+
 ## v0.1.21 / 2014-10-28
 
  * ([d33b0ae](https://github.com/tanem/chirp/commit/d33b0aed0661f12413ef064dd39a1ee1dc584159)) Tidy up README

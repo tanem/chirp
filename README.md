@@ -22,7 +22,7 @@ export CHIRP_TOKEN_SECRET=[token secret]
 
 Then:
 
-```
+```sh
 $ npm install -g gulp bunyan; npm install
 ```
 
@@ -30,14 +30,14 @@ $ npm install -g gulp bunyan; npm install
 
 Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use). `port` will default to `3000` if it is not specified:
 
-```
+```sh
 $ gulp
 $ node --harmony server --track=[phrases] --port=[port]
 ```
 
 To prettify the log output, pipe it through the [Bunyan](https://github.com/trentm/node-bunyan) tool: 
 
-```
+```sh
 $ node --harmony server --track=[phrases] --port=[port] | bunyan
 ```
 
@@ -56,7 +56,7 @@ _watch this space_
 ### Browser
 
  * [Browserify](https://github.com/substack/node-browserify) is used to package up the various browser modules
- * The [browser-specific stream module](https://github.com/substack/stream-browserify) to deal with the server response
+ * The [browser-specific stream module](https://github.com/substack/stream-browserify) is used to deal with the server response
  * Rendering is then carried out by [React](https://github.com/facebook/react)
  * The total number of tweet avatars rendered is dependant on the size of the window
  * Once the tweet avatar total is maxed, new tweet data is added to the front of the list, and old data is removed

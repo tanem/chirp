@@ -1,3 +1,7 @@
+## v0.1.24 / 2015-03-13
+
+ * ([d6c1488](https://github.com/tanem/chirp/commit/d6c14881f476079af2e3d13f90508798d2466ce7)) Update LICENSE
+
 ## v0.1.23 / 2014-12-09
 
  * ([a12f33e](https://github.com/tanem/chirp/commit/a12f33e2feab2d88cd571b16b789da0cc9bd005d)) Update README

@@ -1,3 +1,7 @@
+## v0.1.25 / 2015-06-09
+
+ * ([d5a96a3](https://github.com/tanem/chirp/commit/d5a96a3512b1e15ac1cb5e5886c246e864a1a563)) Ensure avatar is hovered during auto-display
+
 ## v0.1.24 / 2015-03-13
 
  * ([d6c1488](https://github.com/tanem/chirp/commit/d6c14881f476079af2e3d13f90508798d2466ce7)) Update LICENSE

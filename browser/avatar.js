@@ -21,7 +21,7 @@ module.exports = React.createClass({
 
   render: function() {
     var classString = 'avatar';
-    if (this.props.isHovered) classString += ' avatar-hover';
+    if (this.props.isDisplayed) classString += ' avatar-hover';
     return (
       <img
         className={classString}

@@ -1,6 +1,6 @@
 {
   "name": "chirp",
-  "version": "0.1.25",
+  "version": "1.0.0",
   "description": "Twitter stream renderer.",
   "main": "server/index.js",
   "homepage": "https://github.com/tanem/chirp",
@@ -37,13 +37,6 @@
     "reactify": "^0.14.0",
     "browserify": "^5.9.1"
   },
-  "keywords": [
-    "twitter",
-    "tweets",
-    "tweet",
-    "broadcast",
-    "stream"
-  ],
   "author": {
     "name": "Tane Morgan",
     "url": "http://github.com/tanem"

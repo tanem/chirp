@@ -23,15 +23,15 @@ export CHIRP_TOKEN_SECRET=[token secret]
 Then:
 
 ```
-$ npm install -g gulp bunyan; npm install
+$ npm install -g bunyan; npm install
 ```
 
 ## Run
 
-Start [gulp](http://gulpjs.com/), then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use). `port` will default to `3000` if it is not specified:
+Build the bundle, then start the server (see [this article](https://dev.twitter.com/docs/streaming-apis/parameters#track) for information on the track phrases you can use). `port` will default to `3000` if it is not specified:
 
 ```
-$ gulp
+$ npm run build
 $ node --harmony server --track=[phrases] --port=[port]
 ```
 

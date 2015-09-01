@@ -62,3 +62,7 @@ _watch this space_
  * Once the tweet avatar total is maxed, new tweet data is added to the front of the list, and old data is removed
  * Hovering over a tweet avatar for a certain amount of time will render the associated tweet text in a popup
  * If the app is idle, random Tweets will be shown every ten seconds.
+
+## License
+
+MIT

@@ -1,5 +1,7 @@
 # chirp
 
+> **Unmaintained.** This project is no longer maintained and the repository is archived.
+
 Stream tweet data from Twitter's public stream all the way through to the browser.
 
 ![](https://raw.github.com/tanem/chirp/master/screenshot.png)
